@@ -1,0 +1,31 @@
+.btn {
+    padding: 12px 32px;
+    font-family: $font_second;
+    font-weight: 700;
+    font-size: 24px;
+    color: $white;
+    background: $black;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border-radius: 6px;
+
+    border: none;
+    outline: none;
+
+    &-chords-select {
+        padding: 0;
+        width: 24px;
+        height: 24px;
+        display: block;
+        border-radius: 50%;
+        background: {
+            color: rgba($black, 0.15);
+        }
+        &.selected {
+            background: {
+                color: rgba($black, 0.15);
+                image: url("../images/icons/checked-black.svg");
+            }
+        }
+    }
+}
