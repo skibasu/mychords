@@ -4,6 +4,9 @@ export const sheets = {
 };
 
 export const excercises = {
+    majorTriads: { name: "Major triads" },
     minorTriads: { name: "Minor triads" },
-    majorTriads: { name: "Major triads" }
+    sevenChords: { name: "Seven chords" },
+    major7Chords: { name: "Major 7th chords" },
+    minor7Chords: { name: "Minor 7th chords" }
 };

@@ -8,10 +8,14 @@
     letter-spacing: 0.15em;
     text-transform: uppercase;
     border-radius: 6px;
+    cursor: pointer;
 
     border: none;
     outline: none;
-
+    &.disabled {
+        opacity: 0.56;
+        cursor: no-drop;
+    }
     &-chords-select {
         padding: 0;
         width: 24px;
@@ -19,7 +23,7 @@
         display: block;
         border-radius: 50%;
         background: {
-            color: rgba($black, 0.15);
+            color: rgba($black, 0.2);
         }
         &.selected {
             background: {

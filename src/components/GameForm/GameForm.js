@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Button from "../Button/Button";
 import InputCheckbox from "../InputCheckbox/InputCheckbox";
+import Game from "../Game/Game";
 import { excercises, sheets } from "../../utils/sheets";
-import { chords } from "../../utils/chords-generators";
+import { chords } from "../../utils/chordsGenerators";
 import "./GameForm.scss";
 
 const GameForm = () => {
@@ -11,6 +12,10 @@ const GameForm = () => {
     Object.keys(excercises).forEach(val => (values[val] = false));
 
     const [chordsTypes, setChordsTypes] = useState(values);
+    const [{ isGame, myChords }, setGameObj] = useState({
+        isGame: false,
+        myChords: []
+    });
 
     const onChangeHandler = name => {
         setChordsTypes(e => {
@@ -19,19 +24,51 @@ const GameForm = () => {
     };
 
     const onClickHandler = () => {
-        console.log(chordsTypes.minorTriads, chordsTypes.majorTriads);
+        let stateChords = [];
+
+        setGameObj({ isGame: true, myChords: [] });
+        console.log(myChords);
 
         if (chordsTypes.minorTriads) {
-            const minorTriads = {
-                minorTriads: chords(sheets, { chordType: "minor" })
-            };
-
-            console.log("click", chords(sheets, { chordType: "minor" }));
+            stateChords = [
+                ...stateChords,
+                ...chords(sheets, { chordType: "minor" })[0],
+                ...chords(sheets, { chordType: "minor" })[1]
+            ];
         }
 
         if (chordsTypes.majorTriads) {
-            console.log("click", chords(sheets, { chordType: "major" }));
+            stateChords = [
+                ...stateChords,
+                ...chords(sheets, { chordType: "major" })[0],
+                ...chords(sheets, { chordType: "major" })[1]
+            ];
         }
+        if (chordsTypes.minor7Chords) {
+            stateChords = [
+                ...stateChords,
+                ...chords(sheets, { chordType: "minor7" })[0],
+                ...chords(sheets, { chordType: "minor7" })[1]
+            ];
+        }
+        if (chordsTypes.major7Chords) {
+            stateChords = [
+                ...stateChords,
+                ...chords(sheets, { chordType: "major7" })[0],
+                ...chords(sheets, { chordType: "major7" })[1]
+            ];
+        }
+        if (chordsTypes.sevenChords) {
+            stateChords = [
+                ...stateChords,
+                ...chords(sheets, { chordType: "seven" })[0],
+                ...chords(sheets, { chordType: "seven" })[1]
+            ];
+        }
+        setGameObj(state => ({
+            ...state,
+            myChords: stateChords
+        }));
     };
 
     return (
@@ -44,13 +81,21 @@ const GameForm = () => {
                     onChangeHandler={() => onChangeHandler(val)}
                 />
             ))}
-            <div className="chordView"></div>
+
             <div className="GameForm__btn-wrapper">
                 <Button
                     onClickHandler={onClickHandler}
                     text="Start"
-                    className="main__btn"
+                    className={
+                        Object.values(chordsTypes).filter(val => val).length
+                            ? ""
+                            : " disabled"
+                    }
                 />
+            </div>
+
+            <div className="GameArea">
+                {isGame && <Game chords={myChords} />}
             </div>
         </div>
     );
