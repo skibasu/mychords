@@ -1,4 +1,4 @@
-export const createChords = (arr, rules) =>
+export const createChords = (arr, rules, type) =>
     arr.map((val, key) => {
         let thirdKey = key + 4;
         let fifthKey = key + 7;
@@ -49,9 +49,10 @@ export const createChords = (arr, rules) =>
                 : [rootNote, thirdNote, fifthNote, seventhNote];
 
         return rules.chordType === "minor" || rules.chordType === "major"
-            ? { name: `${arr[key]} ${rules.chordType}`, notes: chord }
+            ? { name: `${arr[key]} ${rules.chordType}`, notes: chord, type }
             : {
-                  name: `${arr[key]} ${rules.chordType}`,
-                  notes: chord
-              };
+                name: `${arr[key]} ${rules.chordType}`,
+                notes: chord,
+                type
+            };
     });

@@ -17,17 +17,14 @@ const GameForm = () => {
         myChords: []
     });
 
-    const onChangeHandler = name => {
-        setChordsTypes(e => {
-            return { ...e, [name]: !e[name] };
-        });
-    };
+    const onChangeHandler = name => setChordsTypes(myChords => ({ ...myChords, [name]: !myChords[name] }));
+
+
 
     const onClickHandler = () => {
         let stateChords = [];
 
-        setGameObj({ isGame: true, myChords: [] });
-        console.log(myChords);
+        // setGameObj({ isGame: true, myChords: [] });
 
         if (chordsTypes.minorTriads) {
             stateChords = [
@@ -65,39 +62,43 @@ const GameForm = () => {
                 ...chords(sheets, { chordType: "seven" })[1]
             ];
         }
-        setGameObj(state => ({
-            ...state,
+        setGameObj(() => ({
+            isGame: true,
             myChords: stateChords
         }));
     };
 
     return (
-        <div className="GameForm">
-            {Object.keys(excercises).map((val, key) => (
-                <InputCheckbox
-                    key={val + key}
-                    name={excercises[val].name}
-                    isChecked={chordsTypes[val]}
-                    onChangeHandler={() => onChangeHandler(val)}
-                />
-            ))}
+        <>
+            <h2 className="contentModule__title">{!isGame ? 'Choose chords types:' : 'What are correct notes'}</h2>
+            <div className="GameForm">
+                {!isGame && Object.keys(excercises).map((val, key) => (
+                    <InputCheckbox
+                        key={val + key}
+                        name={excercises[val].name}
+                        isChecked={chordsTypes[val]}
+                        onChangeHandler={() => onChangeHandler(val)}
+                    />
+                ))}
 
-            <div className="GameForm__btn-wrapper">
-                <Button
-                    onClickHandler={onClickHandler}
-                    text="Start"
-                    className={
-                        Object.values(chordsTypes).filter(val => val).length
-                            ? ""
-                            : " disabled"
-                    }
-                />
+                {!isGame && <div className="GameForm__btn-wrapper">
+                    <Button
+                        onClickHandler={onClickHandler}
+                        text="Start"
+                        className={
+                            Object.values(chordsTypes).filter(val => val).length
+                                ? ""
+                                : "disabled"
+                        }
+                    />
+                </div>}
+                {isGame &&
+                    <div className="GameArea">
+                        <Game chords={myChords} setGameObj={setGameObj} />
+                    </div>
+                }
             </div>
-
-            <div className="GameArea">
-                {isGame && <Game chords={myChords} />}
-            </div>
-        </div>
+        </>
     );
 };
 
