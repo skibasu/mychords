@@ -4,6 +4,7 @@ import InputCheckbox from "../InputCheckbox/InputCheckbox";
 import Game from "../Game/Game";
 import { excercises, sheets } from "../../utils/sheets";
 import { chords } from "../../utils/chordsGenerators";
+import { shuffleChords } from '../../utils/suffleChords';
 import "./GameForm.scss";
 
 const GameForm = () => {
@@ -23,8 +24,6 @@ const GameForm = () => {
 
     const onClickHandler = () => {
         let stateChords = [];
-
-        // setGameObj({ isGame: true, myChords: [] });
 
         if (chordsTypes.minorTriads) {
             stateChords = [
@@ -64,7 +63,7 @@ const GameForm = () => {
         }
         setGameObj(() => ({
             isGame: true,
-            myChords: stateChords
+            myChords: shuffleChords(stateChords)
         }));
     };
 
