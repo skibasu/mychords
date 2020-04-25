@@ -6,6 +6,5 @@ export const shuffleChords = (arr) => {
         arr[i] = arr[j];
         arr[j] = temp;
     }
-    console.log(arr);
     return arr;
 }

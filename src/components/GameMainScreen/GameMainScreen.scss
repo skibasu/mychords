@@ -5,11 +5,7 @@
     position: relative;
     text-align: left;
     font-size: 22px;
-    &__title {
-        flex: 0 0 100%;
-        max-width: 100%;
-        text-align: center;
-    }
+
     &__item {
         flex: 0 0 auto;
         margin: 0 25px 25px 0;

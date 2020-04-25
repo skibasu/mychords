@@ -1,24 +1,21 @@
 import React, { useState } from "react";
-import GameForm from "../GameForm/GameForm";
+import GameForm from '../GameForm/GameForm';
 import Game from "../Game/Game";
 import { excercises, sheets } from "../../utils/sheets";
 import { chords } from "../../utils/chordsGenerators";
 import { shuffleChords } from '../../utils/suffleChords';
+import "./GameMainScreen.scss";
 
-const ScreenStart = () => {
+const GameMainScreen = () => {
 
-    const values = {};
-    Object.keys(excercises).forEach(val => (values[val] = false));
-
-    const [chordsTypes, setChordsTypes] = useState(values);
     const [{ isGame, myChords }, setGameObj] = useState({
         isGame: false,
         myChords: []
     });
 
+    const onChangeHandler = name => setChordsTypes(myChords => ({ ...myChords, [name]: !myChords[name] }));
 
-    const setChords = name => setChordsTypes(myChords => ({ ...myChords, [name]: !myChords[name] }));
-    const startGame = () => {
+    const onClickHandler = () => {
         let stateChords = [];
 
         if (chordsTypes.minorTriads) {
@@ -62,13 +59,19 @@ const ScreenStart = () => {
             myChords: shuffleChords(stateChords)
         }));
     };
-    return (
-        <div className="contentModule__screen contentModule__screen--start">
-            {!isGame && <GameForm excercises={excercises} chordsTypes={chordsTypes} setChords={setChords} startGame={startGame} />}
-            {isGame && <Game chords={myChords} setGameObj={setGameObj} />}
 
-        </div>
+    return (
+        <>
+            {!isGame && <GameForm onChangeHandler={onClickHandler} />}
+
+            {isGame &&
+                <div className="GameArea">
+                    <Game chords={myChords} setGameObj={setGameObj} />
+                </div>
+            }
+
+        </>
     );
 };
 
-export default ScreenStart;
+export default GameMainScreen;

@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './pianoKeys.scss';
 
-const PianoKey = ({ notes, type, value, setAnswer }) => {
-    const className = value.length === 2 ? 'blackKey' : 'whiteKey';
+const PianoKey = ({ value, setAnswer, answerArr }) => {
+    const [isClicked, setClicked] = useState(false);
+    const myclassName = value.length === 2 ? `blackKey ${isClicked ? 'active' : ''}` : `whiteKey ${isClicked ? 'active' : ''}`;
+    let val = !isClicked ? value : null;
+
     return (
-        <button className={className} onClick={() => setAnswer(value)}></button>
+
+        <button className={myclassName} onClick={() => { if (val) { setAnswer(val); setClicked(!isClicked) } else { setAnswer(...answerArr.filter(v => v !== value)); setClicked(!isClicked) } }}></ button >
     )
 }
 
