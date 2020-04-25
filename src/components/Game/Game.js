@@ -3,11 +3,14 @@ import Button from '../Button/Button';
 import PianoKey from '../pianoKeys/PianoKey';
 import Summary from '../Summary/Summary';
 import { sheets } from '../../utils/sheets';
+import { answerObject } from '../../utils/sheets';
 import './Game.scss';
 
-
 const Game = ({ chords, setGameObj }) => {
-    const [answerArr, setMyAnswer] = useState([]);
+
+    const obj = answerObject;
+    const [answerObj, setMyAnswerObj] = useState(obj);
+
     const [message, setMessage] = useState('');
     const [{ tryes, correct, workOn }, setSummary] = useState({
         tryes: 0,
@@ -17,15 +20,15 @@ const Game = ({ chords, setGameObj }) => {
 
     const onClickHandler = val => {
         setSummary(state => ({ ...state, tryes: tryes + 1 }));
-        if (answerArr.join() === chords[0].notes.join()) {
+        if (Object.values(answerObj).map((v, key) => v[0]).filter(v => v).join() === chords[0].notes.join()) {
             setMessage(null);
-            setMyAnswer([]);
+            setMyAnswerObj(obj)
             setSummary(state => ({ ...state, correct: correct + 1 }));
             setGameObj(state => ({ ...state, myChords: chords.filter(v => v.name !== val) }))
 
         } else {
             setMessage('Try again');
-            setMyAnswer([]);
+            setMyAnswerObj(obj)
             setSummary(state => ({ ...state, workOn: [...state.workOn, val] }));
         }
 
@@ -34,7 +37,7 @@ const Game = ({ chords, setGameObj }) => {
 
     const { hash, flats } = sheets;
 
-    const setAnswer = val => { setMyAnswer(state => ([...state, val])); setMessage('') };
+    const setAnswerObj = (name, val, i) => { setMyAnswerObj(state => ({ ...state, [name + i]: [val, !state[name + i][1]] })); setMessage('') };
 
     return (
         <div className="Game">
@@ -44,18 +47,18 @@ const Game = ({ chords, setGameObj }) => {
             </div>
             {chords.length > 0 &&
                 <div className="Game__answer">
-                    <span>{!message ? answerArr.join(' ') : message}</span>
+                    <span>{!message ? Object.values(answerObj).map(v => v[0]).join(' ') : message}</span>
                 </div>
             }
             <Button onClickHandler={() => chords.length > 0 ? onClickHandler(chords[0].name) : onClickBack()} text={chords.length > 0 ? "Send" : "Play Again"} className="btn-answer" />
             <div className="Game__keyboard">
                 <div className="keyboard">
-                    {chords.length > 0 && chords[0].type === 'hash' && hash.map((val, key) => <PianoKey key={val + key} value={val} setAnswer={setAnswer} answerArr={answerArr} />)}
-                    {chords.length > 0 && chords[0].type === 'flats' && flats.map((val, key) => <PianoKey key={val + key} value={val} setAnswer={setAnswer} answerArr={answerArr} />)}
+                    {chords.length > 0 && chords[0].type === 'hash' && hash.map((val, key) => <PianoKey key={val + new Date()} value={val} index={1} setAnswer={setAnswerObj} answerObj={answerObj} />)}
+                    {chords.length > 0 && chords[0].type === 'flats' && flats.map((val, key) => <PianoKey key={val + new Date()} value={val} index={1} setAnswer={setAnswerObj} answerObj={answerObj} />)}
                 </div>
                 <div className="keyboard">
-                    {chords.length > 0 && chords[0].type === 'hash' && hash.map((val, key) => <PianoKey key={val + key} value={val} setAnswer={setAnswer} />)}
-                    {chords.length > 0 && chords[0].type === 'flats' && flats.map((val, key) => <PianoKey key={val + key} value={val} setAnswer={setAnswer} />)}
+                    {chords.length > 0 && chords[0].type === 'hash' && hash.map((val, key) => <PianoKey key={val + new Date()} value={val} index={2} setAnswer={setAnswerObj} answerObj={answerObj} />)}
+                    {chords.length > 0 && chords[0].type === 'flats' && flats.map((val, key) => <PianoKey key={val + new Date()} value={val} index={2} setAnswer={setAnswerObj} answerObj={answerObj} />)}
                 </div>
             </div>
         </div>
