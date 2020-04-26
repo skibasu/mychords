@@ -6,7 +6,7 @@ const header = () => {
     return (
         <header className="Header">
             <div className="page-logo">
-                <a href="/">
+                <a href="https://skibasu.github.io/mychords/">
                     <img src={pageLogo} alt="My Chords" />
                 </a>
             </div>
