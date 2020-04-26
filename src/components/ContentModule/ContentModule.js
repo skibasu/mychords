@@ -4,7 +4,7 @@ import "./ContentModule.scss";
 
 const ContentModule = () => {
     return (
-        <section className="contentModule">
+        <section className="ContentModule">
             <ScreenStart />
         </section>
     );

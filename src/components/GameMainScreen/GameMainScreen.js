@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import GameForm from '../GameForm/GameForm';
 import Game from "../Game/Game";
-import { excercises, sheets } from "../../utils/sheets";
+import { sheets } from "../../utils/sheets";
 import { chords } from "../../utils/chordsGenerators";
 import { shuffleChords } from '../../utils/suffleChords';
 import "./GameMainScreen.scss";
@@ -12,8 +12,6 @@ const GameMainScreen = () => {
         isGame: false,
         myChords: []
     });
-
-    const onChangeHandler = name => setChordsTypes(myChords => ({ ...myChords, [name]: !myChords[name] }));
 
     const onClickHandler = () => {
         let stateChords = [];
@@ -62,14 +60,15 @@ const GameMainScreen = () => {
 
     return (
         <>
-            {!isGame && <GameForm onChangeHandler={onClickHandler} />}
-
-            {isGame &&
-                <div className="GameArea">
-                    <Game chords={myChords} setGameObj={setGameObj} />
-                </div>
+            {
+                !isGame
+                    ?
+                    <GameForm onChangeHandler={onClickHandler} />
+                    :
+                    <div className="GameArea">
+                        <Game chords={myChords} setGameObj={setGameObj} />
+                    </div>
             }
-
         </>
     );
 };

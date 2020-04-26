@@ -9,7 +9,6 @@ const GameForm = ({ excercises, chordsTypes, setChords, startGame }) => {
     return (
         <div className="GameForm">
             <h2 className="GameForm__title">Choose chords types:</h2>
-
             {Object.keys(excercises).map((val, key) => (
                 <InputCheckbox
                     key={val + key}
@@ -18,7 +17,6 @@ const GameForm = ({ excercises, chordsTypes, setChords, startGame }) => {
                     onChangeHandler={() => setChords(val)}
                 />
             ))}
-
             <div className="GameForm__btn-wrapper">
                 <Button
                     onClickHandler={startGame}

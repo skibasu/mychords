@@ -63,10 +63,12 @@ const ScreenStart = () => {
         }));
     };
     return (
-        <div className="contentModule__screen contentModule__screen--start">
-            {!isGame && <GameForm excercises={excercises} chordsTypes={chordsTypes} setChords={setChords} startGame={startGame} />}
-            {isGame && <Game chords={myChords} setGameObj={setGameObj} />}
-
+        <div className="ContentModule__screen ContentModule__screen--start">
+            {
+                !isGame
+                    ? <GameForm excercises={excercises} chordsTypes={chordsTypes} setChords={setChords} startGame={startGame} />
+                    : <Game chords={myChords} setGameObj={setGameObj} />
+            }
         </div>
     );
 };

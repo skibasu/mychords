@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 const InputCheckbox = ({ name, onChangeHandler, isChecked }) => {
     const addClass = isChecked ? "selected" : "";
@@ -13,12 +12,6 @@ const InputCheckbox = ({ name, onChangeHandler, isChecked }) => {
             <p className="GameForm__label">{name}</p>
         </div>
     );
-};
-
-InputCheckbox.propTypes = {
-    name: PropTypes.string.isRequired,
-    onChangeHandler: PropTypes.func.isRequired,
-    isChecked: PropTypes.bool.isRequired
 };
 
 export default InputCheckbox;

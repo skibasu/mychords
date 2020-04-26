@@ -1,7 +1,18 @@
+@import "../../assets//css/variables.scss";
+@import "../../assets/css/breakpoints.scss";
+@import "../../assets//css/mixins.scss";
+
 .Game {
     &__keyboard {
+        max-width: 100%;
+        padding: 0 15px;
+        margin: 0 auto;
+        overflow-x: scroll;
         display: flex;
         justify-content: center;
+        @media all and (max-width: 639px) {
+            display: block;
+        }
     }
     &__answer {
         display: flex;
@@ -10,22 +21,45 @@
         font-size: 36px;
         letter-spacing: 1px;
         font-weight: 500;
-        height: 74px;
+        height: 54px;
+        color: $color-1;
+        font-weight: 500;
+        @include mq(md) {
+            height: 74px;
+        }
     }
     &__title-summary {
         font-size: 40px;
         font-weight: 500;
     }
+    &__error-message {
+        color: $color-2;
+        font-weight: 400;
+        font-size: 18px;
+        @include mq(md) {
+            font-size: 24px;
+        }
+    }
 }
 .keyboard {
     display: flex;
     position: relative;
+    flex: 0 0 auto;
+    @media all and (max-width: 639px) {
+        width: 252px;
+        margin: 0 auto;
+        margin-bottom: 12px;
+    }
 }
 .chord {
-    padding: 15px 10px;
-    font-size: 36px;
+    padding: 5px 10px;
+    font-size: 22px;
     letter-spacing: 1px;
     font-weight: 500;
+    @include mq(md) {
+        padding: 10px;
+        font-size: 36px;
+    }
 }
 .btn-answer {
     margin-bottom: 15px;

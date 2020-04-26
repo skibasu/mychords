@@ -1,15 +1,19 @@
+@import "../../assets//css/variables.scss";
 @import "../../assets/css/breakpoints.scss";
 @import "../../assets//css/mixins.scss";
 
-.contentModule {
+.ContentModule {
     flex: 1 1 100%;
     position: relative;
-    padding-top: 80px;
+    padding-top: 85px;
     background: {
         image: url("../../assets/images/bgr/piano.svg");
         position: center center;
         repeat: no-repeat;
         size: contain;
+    }
+    @include mq(md) {
+        padding-top: 120px;
     }
     @include mq(lg) {
         background: {
@@ -30,29 +34,27 @@
         width: 100%;
         height: 100%;
         z-index: 1;
-        background-color: rgba(0, 0, 0, 0.75);
+        background-color: rgba($black, 0.75);
     }
 
     &__screen {
         position: relative;
         z-index: 2;
-        max-width: 90%;
-        min-width: 90%;
-        @include mq(md) {
-            min-width: 60%;
-            max-width: 90%;
-        }
-
-        @include mq(xl) {
-            min-width: 46%;
-            max-width: 46%;
-        }
-
-        margin: 0 auto;
+        margin: 0 auto 10px;
         padding: 30px 20px 30px;
         text-align: center;
         min-height: 300px;
-        background: rgba(250, 250, 250, 0.75);
+        background: $color-bgr;
         box-shadow: 4px 7px 22px -2px rgba(0, 0, 0, 0.15);
+        @include mq(md) {
+            min-width: 60%;
+            max-width: 90%;
+            border-radius: 8px;
+        }
+
+        @include mq(xl) {
+            min-width: 66%;
+            max-width: 66%;
+        }
     }
 }

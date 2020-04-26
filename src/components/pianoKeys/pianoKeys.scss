@@ -1,3 +1,4 @@
+@import "../../assets//css/variables.scss";
 .whiteKey,
 .blackKey {
     cursor: pointer;
@@ -8,42 +9,42 @@
     z-index: 1;
     position: relative;
     display: block;
-    width: 26px;
-    height: 80px;
+    width: 36px;
+    height: 90px;
     border: none;
-    background: white;
-    border: 1px solid black;
+    background: $white;
+    border: 1px solid $black;
     &.active,
     &:active {
-        background: rgba(#4b1a4f, 0.3);
+        background: rgba($color-4, 0.3);
     }
 }
 .blackKey {
     z-index: 2;
     position: absolute;
     display: block;
-    width: 13px;
-    height: 40px;
+    width: 20px;
+    height: 50px;
     background: black;
     border: none;
     top: 0;
     &.active,
     &:active {
-        background: rgba(#4b1a4f, 1);
+        background: rgba($color-4, 1);
     }
     &:nth-child(2) {
-        left: 19.5px;
+        left: 26px;
     }
     &:nth-child(4) {
-        left: 44.5px;
+        left: 62px;
     }
     &:nth-child(7) {
-        left: 97.5px;
+        left: 134px;
     }
     &:nth-child(9) {
-        left: 123.5px;
+        left: 170px;
     }
     &:nth-child(11) {
-        left: 149.5px;
+        left: 204px;
     }
 }

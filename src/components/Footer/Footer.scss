@@ -1,0 +1,17 @@
+@import "../../assets//css/variables.scss";
+.Footer {
+    padding: 30px 30px 10px;
+    margin-top: auto;
+    color: rgba($white, 0.8);
+    background-color: $black;
+    text-align: center;
+    &__copyrights {
+        font-size: 14px;
+    }
+    &__link {
+        transition: all 0.15s ease-in-out;
+        &:hover {
+            color: $color-3;
+        }
+    }
+}
