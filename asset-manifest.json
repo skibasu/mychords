@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/mychords/static/css/main.9f8baa90.chunk.css",
+    "main.css": "/mychords/static/css/main.e6070bb7.chunk.css",
     "main.js": "/mychords/static/js/main.c4ea7f3e.chunk.js",
     "main.js.map": "/mychords/static/js/main.c4ea7f3e.chunk.js.map",
     "runtime-main.js": "/mychords/static/js/runtime-main.b740e814.js",
@@ -8,9 +8,9 @@
     "static/js/2.002ee84d.chunk.js": "/mychords/static/js/2.002ee84d.chunk.js",
     "static/js/2.002ee84d.chunk.js.map": "/mychords/static/js/2.002ee84d.chunk.js.map",
     "index.html": "/mychords/index.html",
-    "precache-manifest.01b1a96535fe8952d7edcf49536949ef.js": "/mychords/precache-manifest.01b1a96535fe8952d7edcf49536949ef.js",
+    "precache-manifest.9ed7724dcf81283b823458bf2e68d10b.js": "/mychords/precache-manifest.9ed7724dcf81283b823458bf2e68d10b.js",
     "service-worker.js": "/mychords/service-worker.js",
-    "static/css/main.9f8baa90.chunk.css.map": "/mychords/static/css/main.9f8baa90.chunk.css.map",
+    "static/css/main.e6070bb7.chunk.css.map": "/mychords/static/css/main.e6070bb7.chunk.css.map",
     "static/media/index.scss": "/mychords/static/media/checked-black.5aa49054.svg",
     "static/media/logo.png": "/mychords/static/media/logo.b126a1ff.png",
     "static/media/ContentModule.scss": "/mychords/static/media/piano.b75b4feb.svg"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.b740e814.js",
     "static/js/2.002ee84d.chunk.js",
-    "static/css/main.9f8baa90.chunk.css",
+    "static/css/main.e6070bb7.chunk.css",
     "static/js/main.c4ea7f3e.chunk.js"
   ]
 }
