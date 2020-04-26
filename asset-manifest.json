@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/mychords/static/css/main.e6070bb7.chunk.css",
-    "main.js": "/mychords/static/js/main.c4ea7f3e.chunk.js",
-    "main.js.map": "/mychords/static/js/main.c4ea7f3e.chunk.js.map",
+    "main.js": "/mychords/static/js/main.b0d42a00.chunk.js",
+    "main.js.map": "/mychords/static/js/main.b0d42a00.chunk.js.map",
     "runtime-main.js": "/mychords/static/js/runtime-main.b740e814.js",
     "runtime-main.js.map": "/mychords/static/js/runtime-main.b740e814.js.map",
     "static/js/2.002ee84d.chunk.js": "/mychords/static/js/2.002ee84d.chunk.js",
     "static/js/2.002ee84d.chunk.js.map": "/mychords/static/js/2.002ee84d.chunk.js.map",
     "index.html": "/mychords/index.html",
-    "precache-manifest.9ed7724dcf81283b823458bf2e68d10b.js": "/mychords/precache-manifest.9ed7724dcf81283b823458bf2e68d10b.js",
+    "precache-manifest.137df738f77c2ef2efe786e608b52f65.js": "/mychords/precache-manifest.137df738f77c2ef2efe786e608b52f65.js",
     "service-worker.js": "/mychords/service-worker.js",
     "static/css/main.e6070bb7.chunk.css.map": "/mychords/static/css/main.e6070bb7.chunk.css.map",
     "static/media/index.scss": "/mychords/static/media/checked-black.5aa49054.svg",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.b740e814.js",
     "static/js/2.002ee84d.chunk.js",
     "static/css/main.e6070bb7.chunk.css",
-    "static/js/main.c4ea7f3e.chunk.js"
+    "static/js/main.b0d42a00.chunk.js"
   ]
 }
