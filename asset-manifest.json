@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "skibasu.github.io/mychords/static/css/main.a455e810.chunk.css",
+    "main.js": "skibasu.github.io/mychords/static/js/main.e764b143.chunk.js",
+    "main.js.map": "skibasu.github.io/mychords/static/js/main.e764b143.chunk.js.map",
+    "runtime-main.js": "skibasu.github.io/mychords/static/js/runtime-main.9521012a.js",
+    "runtime-main.js.map": "skibasu.github.io/mychords/static/js/runtime-main.9521012a.js.map",
+    "static/js/2.002ee84d.chunk.js": "skibasu.github.io/mychords/static/js/2.002ee84d.chunk.js",
+    "static/js/2.002ee84d.chunk.js.map": "skibasu.github.io/mychords/static/js/2.002ee84d.chunk.js.map",
+    "index.html": "skibasu.github.io/mychords/index.html",
+    "precache-manifest.506665f601dca2d9c4304981a516d94a.js": "skibasu.github.io/mychords/precache-manifest.506665f601dca2d9c4304981a516d94a.js",
+    "service-worker.js": "skibasu.github.io/mychords/service-worker.js",
+    "static/css/main.a455e810.chunk.css.map": "skibasu.github.io/mychords/static/css/main.a455e810.chunk.css.map",
+    "static/media/index.scss": "skibasu.github.io/mychords/static/media/checked-black.5aa49054.svg",
+    "static/media/logo.png": "skibasu.github.io/mychords/static/media/logo.b126a1ff.png",
+    "static/media/ContentModule.scss": "skibasu.github.io/mychords/static/media/piano.b75b4feb.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9521012a.js",
+    "static/js/2.002ee84d.chunk.js",
+    "static/css/main.a455e810.chunk.css",
+    "static/js/main.e764b143.chunk.js"
+  ]
+}
