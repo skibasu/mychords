@@ -7,7 +7,7 @@
         max-width: 100%;
         padding: 0 15px;
         margin: 0 auto;
-        overflow-x: scroll;
+        overflow-x: auto;
         display: flex;
         justify-content: center;
         @media all and (max-width: 639px) {
@@ -45,6 +45,7 @@
     display: flex;
     position: relative;
     flex: 0 0 auto;
+
     @media all and (max-width: 639px) {
         width: 252px;
         margin: 0 auto;

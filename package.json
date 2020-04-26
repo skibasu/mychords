@@ -20,7 +20,7 @@
         "test": "react-scripts test",
         "eject": "react-scripts eject"
     },
-    "homepage": "skibasu.github.io/mychords",
+    "homepage": "https://skibasu.github.io/mychords",
     "eslintConfig": {
         "extends": "react-app"
     },
